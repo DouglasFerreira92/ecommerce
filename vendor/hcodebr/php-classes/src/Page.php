@@ -31,7 +31,7 @@ class Page {
 		$this->tpl->draw("header");
 	}
 	//CHAMA O CORPO DA PÁGINA
-	public function template($nome = '',$opt = array() ,$returnHTML=false)
+	public function template($nome = '',$opt=array() ,$returnHTML=false)
 	{
 		$this->setData($opt);
 		return $this->tpl->draw($nome);
@@ -40,7 +40,9 @@ class Page {
 	public function setData($data)
 	{
 		foreach ($data as $key => $value) {
-			$this->tpl->assign($key,$value);
+			
+				$this->tpl->assign($key,$value);
+
 		}
 	} 
 	//CHAMA RODAPE
