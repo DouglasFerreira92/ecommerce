@@ -10,13 +10,13 @@ class Page {
 		"data" => []
 	]; //OPÇÕES PADRÃO
 
-	public function __construct($opt = array())
+	public function __construct($opt = array() , $tpl_dir = "/ecommerce/views/")
 	{
 		//FAZ UM MERGE NOS ARRAYS
 		$this->option =  array_merge($this->defaults , $opt);
 		//CONFIGURAÇÃO DO TEMPLATE
 		$config = array(
-			'tpl_dir' => $_SERVER['DOCUMENT_ROOT'] . "/ecommerce/views/", //VISÃO
+			'tpl_dir' => $_SERVER['DOCUMENT_ROOT'] . $tpl_dir, //VISÃO
 			'cache_dir' => $_SERVER['DOCUMENT_ROOT'] . "/ecommerce/views-cache/",//CACHE DA VISÃO
 			'debug' => false
 		);	
