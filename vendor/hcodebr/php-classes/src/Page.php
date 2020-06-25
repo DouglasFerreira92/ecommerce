@@ -7,6 +7,8 @@ class Page {
 	private $tpl; //VARIAVEL PARA INSTANCIAR TPL
 	private $option = []; //O ARRAY COM O MERGE
 	private $defaults = [
+		"header" => true,
+		"footer" => true,
 		"data" => []
 	]; //OPÇÕES PADRÃO
 
@@ -28,7 +30,8 @@ class Page {
 		//COLOCA VARIAVEIS NO TEMPLATE
 		$this->setData($this->option['data']);
 		//CHAMA CABEÇALHO
-		$this->tpl->draw("header");
+		if($this->option['header'])$this->tpl->draw("header");
+		
 	}
 	//CHAMA O CORPO DA PÁGINA
 	public function template($nome = '',$opt=array() ,$returnHTML=false)
@@ -48,7 +51,7 @@ class Page {
 	//CHAMA RODAPE
 	public function __destruct()
 	{
-		$this->tpl->draw("footer");
+		if($this->option['footer'])$this->tpl->draw("footer");
 	}
 
 }
